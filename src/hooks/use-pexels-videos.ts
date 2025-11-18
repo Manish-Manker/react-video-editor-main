@@ -126,7 +126,7 @@ export function usePexelsVideos(): UsePexelsVideosReturn {
 
   const searchVideos = useCallback(
     async (query: string, page = 1) => {
-      const url = `/api/pexels-videos?query=${encodeURIComponent(query)}&page=${page}&per_page=15`;
+      const url = `https://video.designcombo.dev/api/pexels-videos?query=${encodeURIComponent(query)}&page=${page}&per_page=15`;
       await fetchVideos(url);
     },
     [fetchVideos]
@@ -137,7 +137,7 @@ export function usePexelsVideos(): UsePexelsVideosReturn {
     setError(null);
 
     try {
-      const url = `/api/pexels-videos?query=${encodeURIComponent(query)}&page=${page}&per_page=15`;
+      const url = `https://video.designcombo.dev/api/pexels-videos?query=${encodeURIComponent(query)}&page=${page}&per_page=15`;
       const response = await fetch(url);
 
       if (!response.ok) {
@@ -179,7 +179,7 @@ export function usePexelsVideos(): UsePexelsVideosReturn {
     }
 
     // Fetch fresh data
-    const url = `/api/pexels-videos?page=${page}&per_page=15`;
+    const url = `https://video.designcombo.dev/api/pexels-videos?page=${page}&per_page=15`;
     setLoading(true);
     setError(null);
 
@@ -215,8 +215,8 @@ export function usePexelsVideos(): UsePexelsVideosReturn {
     setError(null);
 
     try {
-      const url = `/api/pexels-videos?page=${page}&per_page=15`;
-      const response = await fetch(url);
+      const url = `https://video.designcombo.devhttps://video.designcombo.dev/api/pexels-videos?page=${page}&per_page=15`;
+      const response = await fetch("https://cors-anywhere.herokuapp.com/"+url);
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

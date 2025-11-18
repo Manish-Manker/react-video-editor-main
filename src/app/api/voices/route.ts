@@ -35,8 +35,8 @@ export async function POST(request: NextRequest) {
       }
     );
 
-    if (!response.ok) {
-      throw new Error(`External API responded with status: ${response.status}`);
+    if (!response?.ok) {
+      throw new Error(`External API responded with status: ${response?.status}`);
     }
 
     const data = await response.json();

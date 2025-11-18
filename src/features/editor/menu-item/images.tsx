@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Search, Loader2 } from "lucide-react";
 import { usePexelsImages } from "@/hooks/use-pexels-images";
 import { ImageLoading } from "@/components/ui/image-loading";
+import {IMAGES} from "../data/images";
 
 export const Images = () => {
   const isDraggingOverTimeline = useIsDraggingOverTimeline();
@@ -144,6 +145,16 @@ export const Images = () => {
       <ScrollArea className="flex-1 lg:max-h-[calc(100%-125px)] max-h-[500px]">
         <div className="masonry-sm px-4">
           {displayImages.map((image, index) => {
+            return (
+              <ImageItem
+                key={image.id || index}
+                image={image}
+                shouldDisplayPreview={!isDraggingOverTimeline}
+                handleAddImage={handleAddImage}
+              />
+            );
+          })}
+          {IMAGES.map((image, index) => {
             return (
               <ImageItem
                 key={image.id || index}

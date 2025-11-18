@@ -44,9 +44,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistMono.variable} ${geist.variable} ${outfit.variable} antialiased dark font-sans bg-muted`}
-      >
+      <body className={`${geistMono?.variable} ${geist?.variable} ${outfit?.variable} antialiased dark font-sans bg-muted`} >
         <QueryProvider>
           {children}
           <StoreInitializer />

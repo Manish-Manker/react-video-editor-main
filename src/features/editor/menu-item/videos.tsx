@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Search, Loader2, PlusIcon } from "lucide-react";
 import { usePexelsVideos } from "@/hooks/use-pexels-videos";
 import { ImageLoading } from "@/components/ui/image-loading";
+import { VIDEOS } from "../data/video"
 
 export const Videos = () => {
   const isDraggingOverTimeline = useIsDraggingOverTimeline();
@@ -141,6 +142,16 @@ export const Videos = () => {
               />
             );
           })}
+           {VIDEOS.map((video, index) => {
+            return (
+              <VideoItem
+                key={video.id || index}
+                video={video}
+                shouldDisplayPreview={!isDraggingOverTimeline}
+                handleAddImage={handleAddVideo}
+              />
+            );
+          })}         
         </div>
         {pexelsLoading && <ImageLoading message="Searching for videos..." />}
         {/* Pagination */}
